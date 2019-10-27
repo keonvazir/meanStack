@@ -1,0 +1,23 @@
+const generateCoinChange = cents => {
+    let quarter = 0;
+    let penny = 0;
+    let dime = 0;
+    let dollar = 0;
+    let nickel = 0;
+    let remainingChange = cents;
+
+    const getNumberofCoins = (coinValue) => {
+        let numberOfCoins = Math.floor(remainingChange/coinValue);
+        remainingChange = remainingChange - (numberOfCoins * coinValue);
+
+        return numberOfCoins;
+    };
+    quarter = getNumberofCoins(25);
+    dime = getNumberofCoins(10);
+    nickel = getNumberofCoins(5);
+    penny = getNumberofCoins(1);
+    dollar = getNumberofCoins(100);
+
+    console.log('Quarters: ${quarter}, Dimes: ${dime}, Nickels: ${nickel}, Pennies: ${penny}, Dollars: ${dollar}')
+};
+generateCoinChange(365);
