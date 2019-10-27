@@ -1,0 +1,53 @@
+// recursive 
+
+let recursiveFunction = function(arr, x, start, end){
+
+    //Base case
+    if(start > end){
+        return false;
+    }
+    //find middle index
+    let mid = Math.floor((start+end)/2);
+
+    //compare mid w/given X value
+    if(arr[mid]==x){
+        return true;
+    }
+    //if element at mid is greater than X,
+    //search to left of mid
+    if(arr[mid]>x){
+        return recursiveFunction(arr, x, start, mid-1);
+    }
+    //if element at mid is less than X
+    //search to the right of mid, change the start position
+    else {
+        return recursiveFunction(arr, x, mid+1, end);
+    }
+
+}
+///////////////////////////////////
+//iteratively
+
+let iterativeFunction = function(arr, x){
+    let start = 0; 
+    let end = arr.length;
+
+    while(start<=end){
+        //find mid index
+
+        let mid=Math.floor((start+end)/2);
+
+        if(arr[mid]==x){
+            return true;
+        }
+        else if(arr[mid]>x){
+            start = mid -1;
+        }else{
+            end = mid +1;
+        }
+    }
+    //if not ture...
+    return false;
+}
+//Big O notation
+O(log n);
