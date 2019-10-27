@@ -1,0 +1,22 @@
+    let matchingOpeningBracket, ch
+    let stack = []
+
+    let openingBracket = ['[', '(', '{']
+    let closingBracket = [']', ')', '}']
+
+    for(let i=0; i<str.length; i++){
+        ch = str[i];
+
+        if(closingBracket.indexOf(ch) > -1){
+            matchingOpeningBracket = openingBracket[closingBracket.indexOf(ch)]
+            if(stack.length == 0 || (stack.pop()!= matchingOpeningBracket)){
+                return false;
+            }
+            else{
+                stack.push(ch);
+            }
+        }
+
+    }
+    return(stack.length ==0);
+}
