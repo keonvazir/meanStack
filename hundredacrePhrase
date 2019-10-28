@@ -1,0 +1,41 @@
+var tigger = {
+    character: "Tigger",
+    north: pooh,        // assuming that pooh is an object that has already been declared
+    greet: function(){
+            console.log("The wonderful thing about Tiggers is Tiggers are wonderful things!");
+            }
+};
+tigger.greet();
+
+var pooh = {
+    character: "Winnie the Pooh",
+    south: tigger,
+    greet: function(){
+        console.log("I love honey");
+    }
+};
+pooh.greet();
+
+var piglet = {
+    character: "Piglet",
+    east: pooh,
+    greet: function(){
+        console.log("I'm piglet");
+    }
+};
+piglet.greet();
+
+var Bees = {
+    character: "Bees",
+    west: pooh,
+    greet: function(){
+        console.log("bzzzz");
+    }
+};
+bees.greet(); 
+
+//etc...
+
+move(north).greet();
+
+//changes made to original hundredacre
