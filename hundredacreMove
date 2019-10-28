@@ -1,0 +1,49 @@
+
+////////////////////////
+var player={
+    location: tigger,
+    secondloc: pooh,
+    thirloc: chris,
+    fourthloc: kanga,
+}
+//create function move(north, south, east, west){}
+function move(north, south, east, west){
+    if(move == tigger.north){
+        // player.tigger.move(north);
+        player.location.north;
+        return "Winnie the Pooh's house";
+    }
+    else if(move == tigger.north.west){
+        player.location.north.west;
+        return "Piglet's house";
+    }else if(move == tigger.north.east){
+        player.location.north.east;
+        return "Bee's nest";
+    }else if(move == pooh.north){
+        player.secondloc.north;
+        return "Christopher Robin's house";
+    }else if(move == pooh.north.west){
+        player.secondloc.north.west;
+        return "Owl's house";
+    }else if(move == pooh.north.east){
+        player.secondloc.north.east;
+        return "Rabbit's house";
+    }else if(move == pooh.north.east.east){
+        player.secondloc.north.east.east;
+        return "gopher house";
+    }else if(move == chris.north){
+        player.thirloc.north;
+        return "Kanga's house";
+    }else if(move == kanga.north){
+        player.kanga.north;
+        return "Eyeore's hosue";
+    }else if(move == kanga.north.east){
+        player.kanga.north.east;
+        return "Heff's house";
+    }else {
+        return "Not a valid move try again."
+    }
+    //invoke function below
+    
+}
+move(north);
