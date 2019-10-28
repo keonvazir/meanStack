@@ -20,3 +20,52 @@
     }
     return(stack.length ==0);
 }
+function isValid(str){
+    if(str.length <=1)
+    return false
+
+    let matchingOpeningBracket, ch
+    let stack = []
+
+    let openingBracket = ['[', '(', '{']
+    let closingBracket = [']', ')', '}']
+
+    for(let i=0; i<str.length; i++){
+        ch = str[i];
+
+        if(closingBracket.indexOf(ch) > -1){
+            matchingOpeningBracket = openingBracket[closingBracket.indexOf(ch)]
+            if(stack.length == 0 || (stack.pop()!= matchingOpeningBracket)){
+                return false;
+            }
+            else{
+                stack.push(ch);
+            }
+        }
+
+    }
+    return(stack.length ==0);
+}
+
+///// other version // 
+
+function bracesValid(str){
+    var count = 0;
+    for(var i = 0; i <str.length; i++){
+      if(str.charAt(i) == "(" || str.charAt(i) == "[" || str.charAt(i) == "{"){
+        count ++;
+      }
+      if(str.charAt(i) == ")" || str.charAt(i) == "]" || str.charAt(i) == "}"){
+        count --;
+      }
+      if(count < 0){
+        return false;
+      }
+    }
+    if(count !== 0){
+      return false;
+    }
+    return true;
+  }
+  
+  console.log(bracesValid("((){}"))
