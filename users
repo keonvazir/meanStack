@@ -30,13 +30,11 @@ var users = [
     }
   ]
 
-function userLanguages(users){
-    for(var i=0; i<users.length; i++){
-        function userLanguages(arr){
-    for(var i=0; i<arr.length; i++){
+function userLanguages(array){
+    for(var i=0; i<array.length; i++){
         return(arr[i].fname + " " + arr[i].lname + " knows " + arr[i].languages + ".")
     }
 }
     
-
+userLangagues(users);
 //for loop check
