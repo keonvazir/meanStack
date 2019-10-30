@@ -159,29 +159,37 @@ function pickUp(){
 }
 
 function mission(){
+    //except bees
     charList = [tigger, pooh, piglet, robin, owl, rabbit, gopher, kanga, eeyore, heffa]
-    var rand = Math.floor(Math.random()*Math.floor(charList.length));
+    var rand = Math.floor(Math.random()*(charList.length));
+    //recipient and objective are made up variables to be called on later
     recipient = charList[rand];
     recipient.objective = true;
+    
     console.log("Well hello there adventurer... " + recipient.character + " is in need of some honey! Please lend a helping hand and get some honey from the bees and take it over.");
 }
 
 function drop(){
     if(player.location.objective == true){
+        if(player.honey == true){
+        player.honey = false;
         console.log("Congratulations!!! " + player.location.character + " is thrilled to have received some fresh honey!")
+        } else{
+            console.log("You don't have the honey right now")
+        }
     }
     else{
         console.log("You can't drop the honey here, nobody requested it!")
     }
 }
-
-mission();
-move("north");
-move("east");
-pickUp();
-move("north");
-move("west");
-move("north");
-move("north");
-move("east");
-drop();
+console.log(mission());
+// mission();
+// move("north");
+// move("east");
+// pickUp();
+// move("north");
+// move("west");
+// move("north");
+// move("north");
+// move("east");
+// drop();
