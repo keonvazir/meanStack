@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="black_cat">
+        <h2><%= kitty.text%></h2>
+        <img src="<%= kitty.pic %>">
+        <h3>Name: <%= kitty.name%></h3><br>
+        <h3>Age: <%= kitty.age%></h3><br>
+        <p><%= kitty.speed%></p>
+
+        <h3>Spots: </h3>
+        <% for (var cat in kitty.spots) { %>
+            <p><%= kitty.spots[cat]%></p>
+            
+            <hr>
+        <% } %>
+    </div>
+
+</body>
+</html>
