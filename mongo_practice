@@ -1,0 +1,53 @@
+> use my_first_db
+switched to db my_first_db
+> db
+my_first_db
+> db.createCollection("students")
+{ "ok" : 1 }
+> db.students.insert({name: "Trey", home_state: "CA", lucky_num: 7, birthday: {month: 12, day: 3, year: 1994}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("5dbcd0c0674e455a81a96d3a"), "name" : "Trey", "home_state" : "CA", "lucky_num" : 7, "birthday" : { "month" : 12, "day" : 3, "year" : 1994 } }
+
+> db.students.find()
+{ "_id" : ObjectId("5dbcd0c0674e455a81a96d3a"), "name" : "Trey", "home_state" : "CA", "lucky_num" : 7, "birthday" : { "month" : 12, "day" : 3, "year" : 1994 } }
+{ "_id" : ObjectId("5dbcd157674e455a81a96d3b"), "name" : "Trey", "home_state" : "CA", "lucky_num" : 7, "birthday" : { "month" : 12, "day" : 3, "year" : 1994 } }
+{ "_id" : ObjectId("5dbcd257674e455a81a96d3c"), "name" : "Karl", "home_state" : "CA", "lucky_num" : 5, "birthday" : { "month" : 11, "day" : 5, "year" : 1995 } }
+{ "_id" : ObjectId("5dbcd276674e455a81a96d3d"), "name" : "Jack", "home_state" : "CA", "lucky_num" : 6, "birthday" : { "month" : 6, "day" : 6, "year" : 1996 } }
+{ "_id" : ObjectId("5dbcd293674e455a81a96d3e"), "name" : "Titan", "home_state" : "CA", "lucky_num" : 8, "birthday" : { "month" : 6, "day" : 8, "year" : 1997 } }
+{ "_id" : ObjectId("5dbcd2ad674e455a81a96d3f"), "name" : "Zeus", "home_state" : "CA", "lucky_num" : 9, "birthday" : { "month" : 9, "day" : 9, "year" : 1999 } }
+> 
+
+> db.students.find({home_state: "CA"})
+
+> db.students.find({lucky_num: {$gt: 3}}).pretty()
+
+> db.students.find({lucky_num: {$lt: 3}}).pretty()
+> db.students.find({lucky_num: {$lte: 3}}).pretty()
+
+> db.students.find({lucky_num: {$gte: 1} {lucky_num: {$lte: 9}}).pretty()
+
+> db.students.update({_id: ObjectId("5dbcd0c0674e455a81a96d3a")}, {$push: {interests: ['snowboarding']}})
+
+> db.students.update({_id: ObjectId("5dbcd0c0674e455a81a96d3a")}, {$addToSet: {interests: ['skating', 'soccer']}})
+
+> db.students.update({_id: ObjectId("5dbcd0c0674e455a81a96d3a")}, {$pop: {interests: 1}})
+
+> db.students.remove({home_state: "CA"})
+
+> db.students.remove({name: "Jack"})
+
+> db.students.remove({lucky_num: {$gte: 5}}, true)
+
+> db.students.update({_id: ObjectId("5dbcd0c0674e455a81a96d3a")}, {$push: {number_of_belts: 0}})
+
+> db.students.update({_id: ObjectId("5dbcd0c0674e455a81a96d3a")}, home_state: "CA", {$push: {number_of_belts: +=1}})
+
+db.students.renameCollection("record")
+
+
+
+
+
+
+
