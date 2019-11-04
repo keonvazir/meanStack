@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are some Awesome quotes!</h1><br><br>
+
+        <div id="quotes">
+        <p>
+            <% for (var i in results) {%>
+                
+                <p>Quote: "<%=results[i].quote %>"</p>
+                <p>Name: -<%=results[i].name %> at <%=results[i].createdAt %></p>
+                <hr>
+
+            <% } %>
+            <!-- order the quotes in descending order by date
+            and display the quotes inside quotation marks -->
+        </p>
+        </div>
+        
+    </div>
+</body>
+</html>
