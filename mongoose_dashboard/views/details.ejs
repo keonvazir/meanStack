@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= animal.name%></h1><br><br>
+        <h2>Age: <%= animal.age%></h2><br>
+        <a href="/animals/edit/<%= animal._id%>"><button>Edit Animal</button></a><br><br>
+        <form action="/animals/destroy/<%= animal._id%>" method="POST">
+            <button>Delete Animal</button>
+        </form>
+</body>
+</html>
