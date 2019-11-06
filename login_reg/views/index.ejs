@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="registration">
+        <h1>Registration</h1>
+        <form action="/register" method="POST">
+            <p> First Name: <input type="text" name="firstName"></p><br>
+            <p>Last Name: <input type="text" name="lastName"></p><br>
+            <p>Email: <input type="email" name="email"></p><br>
+            <p>Birthday: <input type="date" name="birthday"></p><br>
+            <p>Password: <input type="text" name="password"></p>
+            <!--confirm password-->
+            <input type="submit" value="Register!">
+        </form>
+        <% if(messages.regform) { %>
+            <% for (var x of messages.regform) { %>
+                <div>
+                    <p class="alert alert-danger size" role="alert"><%= x %></p>
+                </div>
+            <% } %>
+        <% } %>
+    </div><br><!--end of reg-->
+    <div class="login">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <p>Email: <input type="email" name="email"></p><br>
+            <p>Password: <input type="text" name="password"></p>
+            <input type="submit" value="Login!">
+        </form>
+
+    </div>
+    <!--seperation of concerns-->
+</body>
+</html>
