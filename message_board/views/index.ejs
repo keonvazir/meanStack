@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <% if (messages){%>
+            <% if(messages.messageform) { %>
+                <% for (var x of messages.messageform) { %>
+                    <div id="errorbox">
+                        <p class="alert alert-danger" role="alert"><%= x %></p>
+                    </div>
+                <% } %>
+            <% } %>
+            <% if(messages.commentform) { %>
+                <% for (var x of messages.commentform) { %>
+                    <div id="errorbox">
+                        <p class="alert alert-danger" role="alert"><%= x %></p>
+                    </div>
+                <% } %>
+            <% } %>
+        <% } %>
+        <h1>Message Board</h1><br>
+        <hr><br>
+        <form action="/message" method="POST">
+            <p>Name: </p><br>
+            <input type="text" name="name"/>
+
+            <p>Message: </p><br>
+            <textarea name="message"></textarea><br><br>
+            
+            <input type="submit" value="Post message"/>
+        </form>
+        <hr>
+    </div>
+    <div class="wrapper">
+        <% posts.forEach(function(message){ %>
+            <p>Name: <%= message.name%></p>
+            <p>Message: <%= message.message%></p><br>
+        <div class="box">
+            
+            <% for(let c in message.comments) { %>
+                <p>Name: <%= message.comments[c].name %></p>
+                <p>Comment: <%= message.comments[c].comment%></p>
+                <hr>
+               <% } %>
+            <form action="/comment" method="POST">
+                <p>Name: </p>
+                <input type="text" name="name"><br>
+                <p>Comment: </p>
+                <textarea name="comment"></textarea><br>
+                <input type="hidden" name="msgId" value="<%= message._id %>">
+                <input type="submit" value="Post Comment">
+                <hr>
+            </form>
+        </div>
+       <% }) %>
+    </div>
+</body>
+</html>
